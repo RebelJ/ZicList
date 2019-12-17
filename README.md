@@ -8,6 +8,8 @@ ZicList est une application qui permet de partager des listes de musiques avec s
 
 ## Techniques 
 Cette application utilise une Socket Client/Serveur pour que 2 mobiles puissent communiquer en TCP/IP.
+Et partager le contenu d'une ListView dans une activity.
+Le manifest de l'application a été modifié pour que Deezer puisse partager une musique à l'application, le lien de la musique est récupéré et implanter directement dans la liste partagé.
 
 
 * Socket
