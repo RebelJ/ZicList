@@ -1,6 +1,5 @@
 package com.example.ziclist.ui.home;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,25 +11,24 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.ziclist.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
+
 public class HomeFragment extends Fragment {
+
 
     private HomeViewModel homeViewModel;
 
     ArrayAdapter<String> adapter;
     List list = new ArrayList<String>();
-
+    private String message = "";
 
 
 
@@ -67,6 +65,7 @@ public class HomeFragment extends Fragment {
                // final String item = (String) parent.getItemAtPosition(position);
 
                     Intent intent = new Intent(getActivity(), ListActivity.class);
+                    intent.putExtra("NameCession", textView.getText().toString());
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
 
@@ -78,6 +77,22 @@ public class HomeFragment extends Fragment {
 
         });
         return root;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("message_key", this.message);
+    }
+
+/*
+    @Override
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+
+        this.message = savedInstanceState.getString("message_key");
+
     }
 
 
@@ -102,5 +117,5 @@ public class HomeFragment extends Fragment {
 
     }
 
-
+*/
 }
