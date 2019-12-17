@@ -65,21 +65,22 @@ class ConnectionServer extends Thread{
     public void echangeClient(){
         String message = null;
         try {
-            this.socketClient.getInputStream().read(message);
+            while (socketClient.isConnected()){
+                this.socketClient.getInputStream().read(message);
 
-            if (message.startsWith("sync://")){
-                //Conect to the session
+                if (message.substring(0, 6).startsWith("sync://")){
+                    String session = message.substring(6, message.length());
 
+                    while (true){
+                        //url = new BufferedReader(new InputStreamReader(socket.getInputStream(), ENCODING));
+                        String url = "";
+                        if (url.substring(0, 6).startsWith("http://")){
+                            //read.url(session, url)
+                            // write = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream(), ENCODING));
+                        }else break;
+                    }
+                }
             }
-            else if (message.startsWith("http://")){
-                //Get the URL
-                this.socketClient.getOutputStream().write(message);
-            }
-            else if (message.startsWith("end://")){
-                //End the connection
-
-            }
-
         } catch (IOException ex){
             ex.printStackTrace();
         }

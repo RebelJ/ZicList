@@ -34,10 +34,6 @@ class Connection {
     public void write(String message){
         try {
             new WriteAsyncTask().execute(message);
-            this.bufferWriter.write(message, 0, message.length());
-            this.bufferWriter.newLine();
-            this.bufferWriter.flush();
-
         }catch (Exception ex){
             ex.fillInStackTrace();
         }
@@ -89,8 +85,10 @@ class Connection {
         @Override
         protected Void doInBackground(String... messages) {
             try {
-                socket.getOutputStream().write(messages[0]);
-                socket.getOutputStream().flush();
+                bufferWriter.write(messages[0], 0, messages[0].length());
+                bufferWriter.newLine();
+                bufferWriter.flush();
+
             }catch (Exception ex) {
                 e = ex;
             }
