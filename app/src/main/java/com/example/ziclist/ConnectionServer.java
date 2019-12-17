@@ -69,7 +69,7 @@ class ConnectionServer extends Thread{
 
             if (message.startsWith("sync://")){
                 //Conect to the session
-                
+
             }
             else if (message.startsWith("http://")){
                 //Get the URL
