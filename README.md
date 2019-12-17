@@ -10,8 +10,16 @@ ZicList est une application qui permet de partager des listes de musiques avec s
 Cette application utilise une Socket Client/Serveur pour que 2 mobiles puissent communiquer en TCP/IP.
 
 
-*Socket
-*Thread
-*AsyncTask
+* Socket
+* ServerSocket
+* Thread
+* AsyncTask
+* BufferReader/Writer
+* InputStream
+* ListView
+* URI
+* ArrayAdapter
+* Fragment
+* ViewModel
 
 
